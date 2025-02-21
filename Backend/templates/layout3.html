@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:context=".TDList">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="cursive"
+        android:text="@string/to_do_list"
+        android:textColor="#673AB7"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"/>
+
+    <EditText
+        android:id="@+id/addTask"
+        android:autofillHints="text"
+        android:inputType="text"
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:translationX="30dp"
+        android:translationY="130dp"
+        tools:ignore="LabelFor"/>
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="126dp"
+        android:layout_height="61dp"
+        android:translationX="220dp"
+        android:translationY="120dp"
+        android:text="@string/add"
+        android:textSize="20sp"
+        android:onClick="addTask"
+        tools:ignore="OnClick" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/add"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:id="@+id/tasksContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>
