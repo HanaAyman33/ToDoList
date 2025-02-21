@@ -42,7 +42,7 @@ The **To-Do List App** is a simple and efficient task management application for
    ```
 4. Run the Flask server:
    ```bash
-   python app.py
+   flask run
    ```
 
 ### Android Setup
