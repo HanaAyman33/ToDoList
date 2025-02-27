@@ -47,5 +47,6 @@ dependencies {
 
     implementation(libs.core.ktx)
     implementation(libs.okhttp)
+    implementation (libs.androidx.constraintlayout.v214)
 
 }
