@@ -48,5 +48,5 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.okhttp)
     implementation (libs.androidx.constraintlayout.v214)
-
+    implementation (libs.gif.android.gif.drawable)
 }

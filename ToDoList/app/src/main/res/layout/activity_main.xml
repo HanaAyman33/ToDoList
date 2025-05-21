@@ -3,35 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5F5"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/title"
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gif_image"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:fontFamily="sans-serif-condensed-light"
-        android:text="Welcome To Done"  android:textColor="#673AB7"
-        android:textSize="40sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/subTitle"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-light"
-        android:text="@string/loginLabel"  android:textColor="#673AB7"
-        android:textSize="45sp"
-        android:textStyle="bold"
-        android:layout_marginLeft="150dp"  android:layout_marginTop="140dp"/>
+        android:layout_height="210dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/first"
+        android:layout_marginBottom="16dp" />
 
     <TextView
         android:id="@+id/username"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="@string/username"  android:textColor="#673AB7"
+        android:text="@string/username"
+        android:textColor="#374b4a"
         android:textSize="30sp"
         android:textStyle="bold"
         android:layout_marginLeft="50dp"
@@ -43,7 +34,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/password"
-        android:textColor="#673AB7"
+        android:textColor="#374b4a"
         android:textSize="30sp"
         android:textStyle="bold"
         android:layout_marginLeft="50dp"
@@ -57,6 +48,7 @@
         android:layout_marginTop="300dp"
         android:autofillHints="username"
         android:inputType="text"
+        android:background="#E0E8E8"
         tools:ignore="LabelFor" />
 
     <EditText
@@ -67,6 +59,7 @@
         android:layout_marginTop="400dp"
         android:autofillHints="password"
         android:inputType="textPassword"
+        android:background="#E0E8E8"
         tools:ignore="LabelFor" />
 
     <Button
@@ -78,7 +71,12 @@
         android:layout_marginBottom="60dp"
         android:onClick="viewList"
         android:text="@string/log"
-        android:textSize="20sp"
+        android:background="#374b4a"
+        android:textColor="#F5F5F5"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:gravity="center"
         android:fontFamily="sans-serif-condensed-medium"/>
 
     <Button
@@ -90,7 +88,12 @@
         android:layout_marginBottom="60dp"
         android:onClick="toggle"
         android:text="@string/registerNew"
-        android:textSize="20sp"
+        android:background="#374b4a"
+        android:textColor="#F5F5F5"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:gravity="center"
         android:fontFamily="sans-serif-condensed-medium"/>
 
-</RelativeLayout >
+    </RelativeLayout>

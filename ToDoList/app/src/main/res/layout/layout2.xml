@@ -5,18 +5,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:background="#F5F5F5"
     tools:context=".Register">
 
-    <TextView
-        android:id="@+id/Register"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-light"
-        android:text="@string/register"
-        android:textColor="#673AB7"
-        android:textSize="70sp"
-        android:textStyle="bold"
-        android:translationX="90dp"
-        android:translationY="100dp" />
+<!--    <TextView-->
+<!--        android:id="@+id/subTitle"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:fontFamily="sans-serif-condensed-light"-->
+<!--        android:text="@string/register"-->
+<!--        android:textColor="#374b4a"-->
+<!--        android:textSize="45sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:layout_marginLeft="125dp"-->
+<!--        android:layout_marginTop="140dp"/>-->
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gif_image"
+        android:layout_width="300dp"
+        android:layout_height="210dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/first"
+        android:layout_marginBottom="16dp" />
 
     <TextView
         android:id="@+id/username"
@@ -24,7 +36,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/username"
-        android:textColor="#673AB7"
+        android:textColor="#374b4a"
         android:textSize="30sp"
         android:textStyle="bold"
         android:translationX="50dp"
@@ -36,7 +48,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/password"
-        android:textColor="#673AB7"
+        android:textColor="#374b4a"
         android:textSize="30sp"
         android:textStyle="bold"
         android:translationX="50dp"
@@ -48,6 +60,7 @@
         android:inputType="text"
         android:layout_width="170dp"
         android:layout_height="40dp"
+        android:background="#F0E6EF"
         android:translationX="180dp"
         android:translationY="300dp"
         tools:ignore="LabelFor" />
@@ -58,6 +71,7 @@
         android:inputType="text"
         android:layout_width="170dp"
         android:layout_height="40dp"
+        android:background="#F0E6EF"
         android:translationX="180dp"
         android:translationY="400dp"
         tools:ignore="LabelFor" />
@@ -70,8 +84,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="60dp"
         android:text="@string/registerButton"
+        android:background="#374b4a"
+        android:textColor="#F5F5F5"
         android:fontFamily="sans-serif-condensed-medium"
-        android:textSize="20sp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:gravity="center"
         android:onClick="register"/>
 
 </RelativeLayout>

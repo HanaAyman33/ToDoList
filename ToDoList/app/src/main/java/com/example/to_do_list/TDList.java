@@ -10,7 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.graphics.drawable.GradientDrawable;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.DragEvent;
@@ -52,10 +52,18 @@ import java.util.Random;
 
 //To-Do-List Activity
 public class TDList extends AppCompatActivity {
-    private RequestQueue requestQueue;
+    private RequestQueue tasksRequestQueue;
     private LinearLayout tasksContainer;
     private EditText addTaskEditText;
     private NestedScrollView scrollView;
+    private int[] pastelColors = {
+            0xFFB9F6CA, // Mint Green
+            0xFFFFCCBC, // Peach
+            0xFFB3E5FC, // Light Blue
+            0xFFF8BBD0, // Pink
+            0xFFFFF9C4, // Light Yellow
+            0xFFD1C4E9  // Lavender
+    };
 
     @SuppressLint({"MissingInflatedId", "WrongViewCast"})
     @Override
@@ -64,7 +72,7 @@ public class TDList extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.layout3);
 
-        requestQueue = Volley.newRequestQueue(this);
+        tasksRequestQueue = Volley.newRequestQueue(this);
         tasksContainer = findViewById(R.id.taskTextView);
         addTaskEditText = findViewById(R.id.addTask);
         scrollView = findViewById(R.id.scrollView);
@@ -76,7 +84,7 @@ public class TDList extends AppCompatActivity {
         fetchTasks();
     }
 
-    private void fetchTasks() {//  Handling Get Request
+    private void fetchTasks() {// Handling Get Request
         String url = "http://10.0.2.2:5000/To-Do-List/";
 
         String accessToken = getJwtToken(); // Retrieve the token
@@ -119,7 +127,7 @@ public class TDList extends AppCompatActivity {
                 return getAuthHeaders();
             }
         };
-            requestQueue.add(getRequest);
+        tasksRequestQueue.add(getRequest);
     }
 
     private void addTaskToView(String task) {
@@ -127,6 +135,12 @@ public class TDList extends AppCompatActivity {
         TextView taskTextView = taskView.findViewById(R.id.taskTextView);
         taskTextView.setText(task);
         tasksContainer.addView(taskView);
+
+        // Set random pastel color for background and text
+        Random random = new Random();
+        int randomColor = pastelColors[random.nextInt(pastelColors.length)];
+        taskTextView.setBackgroundColor(randomColor);
+        taskTextView.setTextColor(0xFF808080);
 
         Button doneButton = taskView.findViewById(R.id.doneButton);
         doneButton.setOnClickListener(v -> done(taskView, taskTextView.getText().toString()));//handle deleting/finishing the task
@@ -175,22 +189,6 @@ public class TDList extends AppCompatActivity {
                     return false;
             }
         });
-
-        //UI handling (make background-color of tasks to have gradient color(randomly generated for each task)
-        int[] colors = new int[]{
-                getRandomColor(), getRandomColor(), getRandomColor()
-        };
-
-        GradientDrawable gradientDrawable = new GradientDrawable(
-                GradientDrawable.Orientation.TL_BR, colors
-        );
-        gradientDrawable.setCornerRadius(16f);
-        taskTextView.setBackground(gradientDrawable);
-
-    }
-    private int getRandomColor() {
-        Random random = new Random();
-        return 0xFF000000 | random.nextInt(0xFFFFFF); // Generate a random color
     }
 
     private StringRequest createAuthenticatedRequest(int method, String url,
@@ -280,15 +278,12 @@ public class TDList extends AppCompatActivity {
                     Toast.makeText(TDList.this, "Error: " + statusCode, Toast.LENGTH_LONG).show();
                 }
             }
-        }
-        else {
+        } else {
             Toast.makeText(TDList.this, "Network error", Toast.LENGTH_SHORT).show();
         }
-//        Log.e("Volley Error", error.toString());
-//        Toast.makeText(this, "Network or server error", LENGTH_SHORT).show();
     }
 
-    public void addTask(View view)  {
+    public void addTask(View view) {
         String task = addTaskEditText.getText().toString().trim();
         if (task.isEmpty()) {
             Toast.makeText(this, "Please enter a task", Toast.LENGTH_SHORT).show();
@@ -329,9 +324,8 @@ public class TDList extends AppCompatActivity {
                     }, jsonParams); // Pass jsonParams here
 
             if (postRequest != null) {
-                requestQueue.add(postRequest); // Add the request to the queue
-            }
-            else {
+                tasksRequestQueue.add(postRequest); // Add the request to the queue
+            } else {
                 Log.e("Auth Request", "Request is null. Check token retrieval.");
                 Toast.makeText(this, "Authentication error", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, MainActivity.class); // Or wherever your login is
@@ -345,7 +339,7 @@ public class TDList extends AppCompatActivity {
 
     private void done(RelativeLayout taskView, String taskToDelete) {// Handle Delete Request
         String url = "http://10.0.2.2:5000/To-Do-List/";
-        try{
+        try {
             JSONObject jsonParams = new JSONObject();
             jsonParams.put("task", taskToDelete); // Use "task" here (as originally intended
             Log.d("DELETE Request JSON", jsonParams.toString());
@@ -372,7 +366,7 @@ public class TDList extends AppCompatActivity {
                     error -> {
                         Log.e("DELETE Volley Error", error.toString());
                         handleVolleyError(error);
-                    }){
+                    }) {
                 @Override
                 public Map<String, String> getHeaders() throws AuthFailureError {
                     return getAuthHeaders();
@@ -387,21 +381,9 @@ public class TDList extends AppCompatActivity {
                 }
             };
 
-            //if (deleteRequest != null) {
-                requestQueue.add(deleteRequest);
-//            }
-//            else {
-//                // Handle null request (e.g., redirect to login)
-//                Log.e("Auth Request", "Request is null. Check token retrieval.");
-//                Toast.makeText(this, "Authentication error", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(this, MainActivity.class); // Or wherever your login is
-//                startActivity(intent);
-//                finish();
-//            }
+            tasksRequestQueue.add(deleteRequest);
         } catch (JSONException e) {
             e.printStackTrace();
-            //Toast.makeText(this, "Error creating JSON", LENGTH_SHORT).show();
         }
     }
-
 }
