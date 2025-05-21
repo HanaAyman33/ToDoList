@@ -17,7 +17,7 @@
         android:textStyle="bold"
         android:fontFamily="sans-serif-condensed-medium"
         android:textSize="18sp"
-        android:background="@drawable/pastel_background_selector"
+        android:background="@drawable/teal_background_selector"
         android:textColor="#374b4a"
         tools:ignore="RelativeOverlap" />
 

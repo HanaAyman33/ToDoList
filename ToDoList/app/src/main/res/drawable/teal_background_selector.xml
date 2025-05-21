@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+    <item tools:ignore="StateListReachable">
+        <shape>
+            <solid android:color="#00b9ae" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="#037171" />
+        </shape>
+    </item>
+    <item tools:ignore="StateListReachable">
+        <shape>
+            <solid android:color="#02c3bd" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="#009f93" />
+        </shape>
+    </item>
+</selector>

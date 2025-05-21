@@ -56,13 +56,11 @@ public class TDList extends AppCompatActivity {
     private LinearLayout tasksContainer;
     private EditText addTaskEditText;
     private NestedScrollView scrollView;
-    private int[] pastelColors = {
-            0xFFB9F6CA, // Mint Green
-            0xFFFFCCBC, // Peach
-            0xFFB3E5FC, // Light Blue
-            0xFFF8BBD0, // Pink
-            0xFFFFF9C4, // Light Yellow
-            0xFFD1C4E9  // Lavender
+    private final int[] tealColors = {
+            0xFF00b9ae, // Ensure full ARGB format
+            0xFF037171,
+            0xFF02c3bd,
+            0xFF009f93
     };
 
     @SuppressLint({"MissingInflatedId", "WrongViewCast"})
@@ -138,9 +136,9 @@ public class TDList extends AppCompatActivity {
 
         // Set random pastel color for background and text
         Random random = new Random();
-        int randomColor = pastelColors[random.nextInt(pastelColors.length)];
+        int randomColor = tealColors[random.nextInt(tealColors.length)];
         taskTextView.setBackgroundColor(randomColor);
-        taskTextView.setTextColor(0xFF808080);
+        taskTextView.setTextColor(0xFFF5F5F5);
 
         Button doneButton = taskView.findViewById(R.id.doneButton);
         doneButton.setOnClickListener(v -> done(taskView, taskTextView.getText().toString()));//handle deleting/finishing the task
