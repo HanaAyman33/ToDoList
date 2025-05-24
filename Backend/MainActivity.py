@@ -10,7 +10,7 @@ app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'  # JWT secret key
 app.config['JWT_TOKEN_LOCATION'] = ['headers']  # Ensure JWT is taken from headers
 app.config['JWT_HEADER_NAME'] = 'Authorization'
 app.config['JWT_HEADER_TYPE'] = 'Bearer'
-app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(hours=24)  # 24-hour token validity
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(minutes=1)  # 24-hour token validity
 jwt = JWTManager(app)  # Initialize Flask-JWT-Extended
 
 # Login Blueprint
@@ -32,6 +32,13 @@ def close_connection(exception):
     if db is not None:
         print("Closing the database connection") # Add a log
         db.close()
+
+@app.route('/welcome/', methods=['GET'])
+def welcome():
+    with app.app_context():
+        print("Get Request received \n")
+        print("Welcome page accessed")
+        return render_template("welcome.html")  
 
 @login_bp.route('/login/', methods=['GET','POST'])
 def login():
@@ -59,9 +66,7 @@ def login():
                     if user:   # Handle successful login
                         print("Login successful")
                         user_id = user[0]
-                        # access_token = create_access_token(identity=str(user_id))  # Use the user ID as the identity(should be a string)
-                        #test
-                        expires = datetime.timedelta(hours=24)  # Explicitly set token expiration
+                        expires = datetime.timedelta(minutes=1)  # Explicitly set token expiration
                         access_token = create_access_token(identity=str(user_id), expires_delta=expires)
                 
                         print("Access Token:", access_token)  # Log for debugging

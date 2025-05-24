@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">To-Do-List</string>
+    <string name="app_name">To-Do List</string>
     <string name="welcome_to_done">Welcome TO Done</string>
     <string name="loginLabel">Login</string>
     <string name="username">Username:</string>
@@ -14,4 +14,5 @@
     <string name="delete">Delete</string>
     <string name="done">Done</string>
     <string name="enter_task">Enter task</string>
+    <string name="login">Login</string>
 </resources>

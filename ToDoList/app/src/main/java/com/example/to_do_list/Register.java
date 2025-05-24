@@ -38,6 +38,7 @@ public class Register extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
         EdgeToEdge.enable(this);
         setContentView(R.layout.layout2);
+
         // Handle Get request
         String url = "http://10.0.2.2:5000/register/"; // flask server IP
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -50,12 +51,11 @@ public class Register extends AppCompatActivity {
 
         // Add the request to the RequestQueue.
         requestQueue.add(stringRequest);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.register), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.Register), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
     }
 
     public void register(View view) {

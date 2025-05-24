@@ -24,17 +24,16 @@
     <Button
         android:id="@+id/doneButton"
         android:layout_width="60dp"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:text="@string/done"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:background="#374b4a"
         android:textColor="#F5F5F5"
         android:fontFamily="sans-serif-condensed-medium"
         tools:ignore="RelativeOverlap"
         android:textStyle="bold"
-        android:textAlignment="center"
         android:gravity="center"/>
 
 </RelativeLayout>

@@ -8,15 +8,17 @@
     android:background="#F5F5F5"
     tools:context=".Register">
 
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/gif_image"
-        android:layout_width="300dp"
-        android:layout_height="210dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/first"
-        android:layout_marginBottom="16dp" />
+    <TextView
+        android:id="@+id/Register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="@string/register"
+        android:textColor="#374b4a"
+        android:textSize="80sp"
+        android:textStyle="bold"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="110dp" />
 
     <TextView
         android:id="@+id/username"
