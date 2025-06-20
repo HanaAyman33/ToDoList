@@ -1,4 +1,4 @@
-# To-Do List App
+# Done: To-Do List App
 
 ## Overview
 The **To-Do List App** is a simple and efficient task management application for Android. Built using **Java** for the frontend and **Flask** for the backend, this app allows users to create and organize their daily tasks seamlessly. The backend uses **SQLite3** as the database for storing user data and tasks.
