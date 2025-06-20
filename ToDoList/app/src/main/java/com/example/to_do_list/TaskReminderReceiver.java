@@ -127,7 +127,7 @@ public class TaskReminderReceiver extends BroadcastReceiver {
     private void createNotificationChannel(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "Task Reminders";
-            String description = "Hourly reminders for your to-do list tasks";
+            String description = "Reminders for your to-do list tasks";
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
             channel.setDescription(description);

@@ -62,7 +62,7 @@ def login():
                     user = cursor.fetchone()
                     if username == "" or password == "": # Handle empty username and password entries
                         print("fail")
-                        return jsonify({'status': 'failure', 'message': 'Invalid username or password'})
+                        return jsonify({'status': 'failure', 'message': 'Empty username or password'})
                     if user:   # Handle successful login
                         print("Login successful")
                         user_id = user[0]
@@ -73,7 +73,7 @@ def login():
                         return jsonify({'status': 'success', 'message': 'Login successful','access_token': access_token,'expires_in': 86400})   # Expiration time in seconds (24 hours)
                     else:
                         print("Login fail")
-                        return jsonify({'status': 'failure', 'message': 'Invalid username or password'}), 401
+                        return jsonify({'status': 'failure', 'message': 'Invalid username or password.'}), 401
                         
                 except Exception as e:
                     conn.rollback()  # Rollback any changes in case of an error
@@ -169,7 +169,7 @@ def todo_list():
                     cur.execute('DELETE FROM tasks WHERE task=? and userID=?', (task, user_id))
                     conn.commit()
                     print("Deleting task: {task} for user: {user_id}")
-                    return jsonify({'status': 'success', 'message': 'Task removed'})
+                    return jsonify({'status': 'success', 'message': 'Done!'})
 
             except Exception as e:
                 print("Error:", e)  # Print the full error for debugging

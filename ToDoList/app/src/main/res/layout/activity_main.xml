@@ -21,24 +21,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="@string/let_s_get_things_done"
+        android:text="@string/let_s_get_nthings_done"
         android:textColor="#374b4a"
-        android:textSize="30sp"
+        android:textSize="35sp"
         android:textStyle="bold"
         android:layout_marginStart="165dp"
-        android:layout_marginTop="110dp" />
+        android:layout_marginTop="120dp" />
 
-    <TextView
-        android:id="@+id/newAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-light"
-        android:text="@string/don_t_have_an_account_register"
-        android:textColor="#374b4a"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:layout_marginStart="165dp"
-        android:layout_marginTop="200dp" />
 
     <TextView
         android:id="@+id/username"

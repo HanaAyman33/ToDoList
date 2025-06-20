@@ -17,4 +17,5 @@
     <string name="login">Login</string>
     <string name="let_s_get_things_done">Let\'s get things done</string>
     <string name="don_t_have_an_account_register">Don\'t have an account? Register</string>
+    <string name="let_s_get_nthings_done">Let\'s get \nthings done</string>
 </resources>
