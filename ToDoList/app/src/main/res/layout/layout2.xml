@@ -18,7 +18,7 @@
         android:textSize="80sp"
         android:textStyle="bold"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="110dp" />
+        android:layout_marginTop="90dp" />
 
     <TextView
         android:id="@+id/username"

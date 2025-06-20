@@ -10,7 +10,7 @@ app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'  # JWT secret key
 app.config['JWT_TOKEN_LOCATION'] = ['headers']  # Ensure JWT is taken from headers
 app.config['JWT_HEADER_NAME'] = 'Authorization'
 app.config['JWT_HEADER_TYPE'] = 'Bearer'
-app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(minutes=1)  # 24-hour token validity
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(days=365)
 jwt = JWTManager(app)  # Initialize Flask-JWT-Extended
 
 # Login Blueprint
@@ -66,7 +66,7 @@ def login():
                     if user:   # Handle successful login
                         print("Login successful")
                         user_id = user[0]
-                        expires = datetime.timedelta(minutes=1)  # Explicitly set token expiration
+                        expires = datetime.timedelta(days=365)
                         access_token = create_access_token(identity=str(user_id), expires_delta=expires)
                 
                         print("Access Token:", access_token)  # Log for debugging
